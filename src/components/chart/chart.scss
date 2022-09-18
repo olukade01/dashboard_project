@@ -1,0 +1,30 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.chart {
+  padding: 10px;
+  padding-bottom: 3rem;
+  color: gray;
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  max-width: 99%;
+  @include th(1000px){
+    max-width: 100%;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  .wii{
+    display: flex;
+    align-items: flex-end;
+
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .chartGrid {
+    stroke: rgb(224, 222, 222);
+  }
+}

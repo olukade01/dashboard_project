@@ -1,0 +1,57 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.home {
+  display: flex;
+  height: 100vh;
+
+  .homeContainer {
+    flex: 6;
+    overflow-y: auto;
+    // overflow-x: hidden;
+
+    .widgets,
+    .charts {
+      padding: 1rem;
+      // display: flex;
+      gap: 20px;
+    }
+    .charts{
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+    .widgets{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      @include th(1000px){
+        grid-template-columns: 1fr 1fr;
+      }
+      @include th(470px){
+        grid-template-columns: 1fr;
+      }
+    }
+    .charts{
+      @include th(1000px){
+        display: flex;
+       flex-direction: column;
+      }
+    }
+
+    .list{
+      padding: 1rem;
+      flex-direction: column;
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      margin: 1rem;
+
+      .listTitle{
+        color: grey;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

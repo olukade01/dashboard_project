@@ -1,0 +1,83 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.featured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 0.7rem;
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  // flex: 1;
+
+  .revenue {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .featuredChart {
+    width: 130px;
+    height: 130px;
+  }
+
+  p {
+    text-align: center;
+    color: gray;
+    font-weight: 300;
+    padding: 0 20px;
+  }
+
+  h3 {
+    color: gray;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-weight: 400;
+  }
+
+  .summary {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    .item {
+      text-align: center;
+      @include th(470px){
+        font-size: 14px;
+        }
+
+      .item-title {
+        color: gray;
+      }
+
+      .item-result {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        gap: 0;
+
+        // .red{
+        //   background-color: blue;
+        // }
+        
+
+        &.positive {
+          color: green;
+        }
+
+        &.negative {
+          color: red;
+        }
+      }
+    }
+  }
+}

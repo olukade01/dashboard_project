@@ -1,0 +1,106 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.single{
+  display: flex;
+  height: 100vh;
+
+  .singleContainer{
+    flex: 6;
+    overflow-y: auto;
+
+    .top{
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+
+      .right{
+        flex: 2;
+      }
+
+      .left{
+        flex: 1;
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 10px 25px;
+        position: relative;  
+
+        .edit{
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: #7451f8;
+          background-color: #7551f85b;
+          border-bottom-left-radius: 5px;
+          padding: 5px;
+          cursor: pointer;
+        }
+
+        .content{
+          gap: 20px;
+
+          img{
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            @include th(450px){
+              margin: auto;
+            }
+          }
+
+          .contentBody{
+            h1{
+              margin-bottom: 10px;
+              color: #555;
+            }
+
+            p{
+              margin-bottom: 5px;
+              color: gray;
+
+              span{
+                font-weight: bold;
+                font-size: 16px;
+                margin-left: -5px;
+              }
+            }
+          }
+          @include th(1250px){
+            display: flex;
+          }
+          @include th(1050px){
+            gap: 7rem;
+          }
+          @include th(600px){
+            gap: 2rem;
+          }
+          @include th(450px){
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+          }
+        }
+      }
+      @include th(1050px){
+        flex-direction: column;
+      }
+    }
+
+    .bottom{
+      padding: 20px;
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      margin: 10px 20px;
+    }
+
+    .title{
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: lightgray;
+    }
+  }
+
+}

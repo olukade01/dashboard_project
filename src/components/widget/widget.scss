@@ -1,0 +1,62 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.widget {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+
+  .right,
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .link {
+      width: max-content;
+      font-size: 13px;
+      border-bottom: 1px solid grey;
+    }
+
+    .number {
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    .title {
+      color: rgb(180, 178, 178);
+      font-weight: bold;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+
+      &.positive {
+        color: green;
+      }
+
+      &.negative {
+        color: red;
+      }
+    }
+
+    .icon {
+      align-self: flex-end;
+      font-size: 32px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  @include th(470px) {
+    height: 100px;
+  }
+}

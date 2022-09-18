@@ -1,0 +1,78 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.navbar {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #555;
+  row-gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  // overflow-x: hidden;
+  border-bottom: 2px solid rgb(230, 227, 227);
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.5px solid lightgray;
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+  }
+
+  .items {
+    display: flex;
+    gap: 22px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .red {
+        width: 16px;
+        height: 16px;
+        background-color: red;
+        border-radius: 8px;
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: -3px;
+        right: -3px;
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+      }
+    }
+  }
+
+  @include th(730px){
+    flex-direction: column-reverse;
+    span{
+      display: none;
+    }
+    .search{
+      width: 13rem;
+    }
+    .items{
+      gap: 5px;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}

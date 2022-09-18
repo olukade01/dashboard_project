@@ -1,0 +1,97 @@
+@mixin th($arg) {
+  @media screen and (max-width: $arg) {
+    @content
+  }
+}
+
+.new{
+  display: flex;
+  height: 100vh;
+
+  .newContainer{
+    flex: 6;
+    overflow-y: auto;
+
+    .top, .bottom{
+      margin: 20px;
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 10px;
+      display: flex;
+      gap: 20px;
+
+      h1{
+        font-size: 22px;
+        color: lightgray;
+      }
+
+      .right{
+        flex: 2;
+
+        form{
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          justify-content: space-around;
+
+          .formInput{
+            width: 45%;
+
+            label{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              font-weight: 600;
+
+              .upload{
+                cursor: pointer;
+              }
+            }
+
+            input {
+              border: none;
+              border-bottom: 1px solid gray;
+              outline: none;
+              font-size: 17px;
+              padding: 5px;
+              width: 100%;
+              color: rgb(83, 83, 83);
+            }
+            @include th(800px){
+              width: 90%;
+              margin-top: 1rem;
+            }
+          }
+
+          button{
+            padding: 10px 60px;
+            background-color: teal;
+            border: none;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            margin-top: 10px;
+            outline: none;
+          }
+          @include th(800px){
+            display: block;
+          }
+        }       
+      }
+
+      .left{
+        flex: 1;
+        text-align: center;
+          
+          img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+          }
+      }
+      @include th(450px){
+        flex-direction: column;
+      }
+    }
+  }
+}
