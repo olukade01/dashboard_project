@@ -6,15 +6,17 @@
 
 .sidebar {
   border-right: 0.5px solid rgb(230, 227, 227);
-  min-height: 100vh;
+  height: 100vh;
   background-color: white;
-  overflow-y: auto;
-
+  padding-bottom: 2rem;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
 
   .top {
     font-size: 1.3rem;
     font-weight: bolder;
-    height: 4.9rem;
+    min-height: 4.9rem;
     display: flex;
     justify-content: center;
     align-items: center;

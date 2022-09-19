@@ -10,7 +10,13 @@
 
   .newContainer{
     flex: 6;
-    overflow-y: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+
+    main{
+      overflow-y: auto;
+    }
 
     .top, .bottom{
       margin: 20px;

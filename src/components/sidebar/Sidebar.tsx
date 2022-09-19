@@ -35,11 +35,13 @@ const Sidebar = () => {
       <div className="bottom">
         <ul>
           <p>MAIN</p>
-          <li>
-            <Dashboard className="icon" />
-            <span>Dashboard</span>
-            <span className="tooltip">Dashboard</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <Dashboard className="icon" />
+              <span>Dashboard</span>
+              <span className="tooltip">Dashboard</span>
+            </li>
+          </Link>
           <p>LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>

@@ -9,7 +9,9 @@ const List = ({ title, linkto }: { title: string; linkto: string }) => {
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <DataTable title={title} linkto={linkto} />
+        <main>
+          <DataTable title={title} linkto={linkto} />
+        </main>
       </div>
     </div>
   );
