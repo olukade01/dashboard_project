@@ -4,13 +4,20 @@ import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Single from "./pages/single/Single";
-import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
+import {
+  userColumns,
+  userRows,
+  productRows,
+  productColumns,
+} from "./datatablesource";
+import NewProducts from "./pages/new/NewProduct";
 
 function App() {
   const { darkMode }: any = useContext(DarkModeContext);
+  const [product, setProduct] = useState(productRows);
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
@@ -22,25 +29,34 @@ function App() {
             <Route path="users">
               <Route
                 index
-                element={<List title="Add New User" linkto="/users/new" />}
+                element={
+                  <List
+                    datas={userRows}
+                    userColumns={userColumns}
+                    title="Add New User"
+                    linkto="/users/new"
+                  />
+                }
               />
               <Route path=":userId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
-              />
+              <Route path="new" element={<New />} />
             </Route>
             <Route path="products">
               <Route
                 index
                 element={
-                  <List title="Add New Product" linkto="/products/new" />
+                  <List
+                    datas={product}
+                    userColumns={productColumns}
+                    title="Add New Product"
+                    linkto="/products/new"
+                  />
                 }
               />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={<NewProducts setProduct={setProduct} />}
               />
             </Route>
           </Route>

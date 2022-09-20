@@ -19,9 +19,9 @@ export const userColumns: GridColDef[] = [
     width: 220,
   },
   {
-    field: "age",
-    headerName: "Age",
-    width: 100,
+    field: "phone",
+    headerName: "Phone",
+    width: 150,
   },
   {
     field: "status",
@@ -34,6 +34,102 @@ export const userColumns: GridColDef[] = [
     ),
   },
 ];
+export const productColumns: GridColDef[] = [
+  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 210,
+    renderCell: (params: GridValueGetterParams) => (
+      <div className="cellWithImg">
+        <img src={params.row.img} />
+        {params.row.title}
+      </div>
+    ),
+  },
+  {
+    field: "category",
+    headerName: "Category",
+    width: 220,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 150,
+  },
+  {
+    field: "price",
+    headerName: "Price",
+    width: 150,
+  },
+  {
+    field: "inStock",
+    headerName: "In Stock",
+    width: 130,
+    renderCell: (params) => (
+      <div className={`cellWithInStock ${params.row.inStock}`}>
+        {params.row.inStock}
+      </div>
+    ),
+  },
+];
+
+export const productRows = [
+  {
+    id: 5,
+    title: "Targaryen",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
+    inStock: "passive",
+    description: "5snow@gmail.com",
+    price: 22,
+    category: "laptop",
+  },
+  {
+    id: 6,
+    title: "Melisandre",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAlUkquwvDZ856VP_lj7B4tHF6lVQKrCZe4w&usqp=CAU",
+    inStock: "active",
+    description: "6snow@gmail.com",
+    price: 15,
+    category: "laptop",
+  },
+  {
+    id: 7,
+    title: "Clifford",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM52o3Lq1x8l8TMs2vHxopWkMJhgM_gKh85g&usqp=CAU",
+    inStock: "passive",
+    description: "7snow@gmail.com",
+    price: 44,
+    category: "laptop",
+  },
+  {
+    id: 8,
+    title: "Frances",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
+    inStock: "active",
+    description: "8snow@gmail.com",
+    price: 36,
+    category: "laptop",
+  },
+  {
+    id: 9,
+    title: "Roxie",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
+    inStock: "pending",
+    description: "snow@gmail.com",
+    price: 65,
+    category: "laptop",
+  },
+  {
+    id: 10,
+    title: "Roxie",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
+    inStock: "active",
+    description: "snow@gmail.com",
+    price: 65,
+    category: "laptop",
+  },
+];
 
 export const userRows = [
   {
@@ -42,7 +138,7 @@ export const userRows = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
     status: "active",
     email: "1snow@gmail.com",
-    age: 35,
+    phone: 35,
   },
   {
     id: 2,
@@ -50,7 +146,7 @@ export const userRows = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
     status: "passive",
     email: "2snow@gmail.com",
-    age: 42,
+    phone: 42,
   },
   {
     id: 3,
@@ -58,7 +154,7 @@ export const userRows = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4Wam9IQiZjp_FYkZrrd99kUqESCo0RZDzg&usqp=CAU",
     status: "pending",
     email: "3snow@gmail.com",
-    age: 45,
+    phone: 45,
   },
   {
     id: 4,
@@ -66,54 +162,6 @@ export const userRows = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTERymxzCBwiYcWG2N6vEYpXN1a0Qv7_cBFFw&usqp=CAU",
     status: "active",
     email: "4snow@gmail.com",
-    age: 16,
-  },
-  {
-    id: 5,
-    username: "Targaryen",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
-    status: "passive",
-    email: "5snow@gmail.com",
-    age: 22,
-  },
-  {
-    id: 6,
-    username: "Melisandre",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAlUkquwvDZ856VP_lj7B4tHF6lVQKrCZe4w&usqp=CAU",
-    status: "active",
-    email: "6snow@gmail.com",
-    age: 15,
-  },
-  {
-    id: 7,
-    username: "Clifford",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM52o3Lq1x8l8TMs2vHxopWkMJhgM_gKh85g&usqp=CAU",
-    status: "passive",
-    email: "7snow@gmail.com",
-    age: 44,
-  },
-  {
-    id: 8,
-    username: "Frances",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
-    status: "active",
-    email: "8snow@gmail.com",
-    age: 36,
-  },
-  {
-    id: 9,
-    username: "Roxie",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
-    status: "pending",
-    email: "snow@gmail.com",
-    age: 65,
-  },
-  {
-    id: 10,
-    username: "Roxie",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
-    status: "active",
-    email: "snow@gmail.com",
-    age: 65,
+    phone: 16,
   },
 ];

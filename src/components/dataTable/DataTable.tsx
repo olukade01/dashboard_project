@@ -1,14 +1,23 @@
 import "./dataTable.scss";
 import { DataGrid, GridValueGetterParams } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const DataTable = ({ title, linkto }: { title: string; linkto: string }) => {
-  const [data, setData] = useState(userRows);
-  const handleDelete = (id: number) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+const DataTable = ({
+  title,
+  linkto,
+  datas,
+  userColumns,
+}: {
+  title: string;
+  linkto: string;
+  datas: any;
+  userColumns: any;
+}) => {
+  // const [data, setData] = useState(datas);
+  // const handleDelete = (id: number) => {
+  //   setData(data.filter((item: any) => item.id !== id));
+  // };
 
   const columnAction = [
     {
@@ -23,9 +32,9 @@ const DataTable = ({ title, linkto }: { title: string; linkto: string }) => {
           >
             <div className="view"> View</div>
           </Link>
-          <div className="delete" onClick={() => handleDelete(params.row.id)}>
+          {/* <div className="delete" onClick={() => handleDelete(params.row.id)}>
             Delete
-          </div>
+          </div> */}
         </div>
       ),
     },
@@ -41,7 +50,7 @@ const DataTable = ({ title, linkto }: { title: string; linkto: string }) => {
       </div>
       <DataGrid
         // className="dataGrid"
-        rows={data}
+        rows={datas}
         columns={userColumns.concat(columnAction)}
         pageSize={9}
         rowsPerPageOptions={[9]}

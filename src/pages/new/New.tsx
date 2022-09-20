@@ -3,10 +3,11 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
+import { userInputs } from "../../formSource";
 
-const New = ({ inputs, title }: { inputs: any; title: string }) => {
+const New = () => {
   const [file, setFile] = useState();
-
+  // const []
   return (
     <div className="new">
       <Sidebar />
@@ -14,7 +15,7 @@ const New = ({ inputs, title }: { inputs: any; title: string }) => {
         <Navbar />
         <main>
           <div className="top">
-            <h1>{title}</h1>
+            <h1>Add New User</h1>
           </div>
           <div className="bottom">
             <div className="left">
@@ -40,7 +41,7 @@ const New = ({ inputs, title }: { inputs: any; title: string }) => {
                     style={{ display: "none" }}
                   />
                 </div>
-                {inputs.map((input: any) => (
+                {userInputs.map((input: any) => (
                   <div key={input.id} className="formInput">
                     <label>{input.label}</label>
                     <input type={input.type} placeholder={input.placeholder} />
