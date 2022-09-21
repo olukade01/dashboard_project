@@ -34,7 +34,7 @@ function App() {
       renderCell: (params: GridValueGetterParams) => (
         <div className="cellAction">
           <Link
-            to="/users/:id"
+            to={`/users/${params.row.id}`}
             style={{ textDecoration: "none", border: "none" }}
           >
             <div className="view"> View</div>
@@ -54,7 +54,7 @@ function App() {
       renderCell: (params: GridValueGetterParams) => (
         <div className="cellAction">
           <Link
-            to="/users/:id"
+            to={`/products/${params.row.id}`}
             style={{ textDecoration: "none", border: "none" }}
           >
             <div className="view"> View</div>
@@ -104,14 +104,7 @@ function App() {
                 }
               />
               <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={
-                  <NewProducts
-                  // setProduct={setProduct}
-                  />
-                }
-              />
+              <Route path="new" element={<NewProducts />} />
             </Route>
           </Route>
         </Routes>

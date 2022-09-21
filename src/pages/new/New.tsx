@@ -5,7 +5,7 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import { useState } from "react";
 import { userInputs } from "../../formSource";
 import { generateId } from "./NewProduct";
-import { addProduct, addUser } from "../../store/dashboard.entity";
+import { addProduct, addUser, todoEntity } from "../../store/dashboard.entity";
 
 const New = () => {
   const [file, setFile] = useState();
@@ -17,6 +17,10 @@ const New = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+
+  const { userItems } = todoEntity.get();
+  const images = userItems.map((item) => item.img);
+  const random = () => images[Math.floor(Math.random() * images.length)];
 
   const handleChange = (e: any, index: number) => {
     index === 1
@@ -38,7 +42,7 @@ const New = () => {
     const data = {
       id: generateId(),
       username,
-      img: "",
+      img: random(),
       email,
       phone,
       country,

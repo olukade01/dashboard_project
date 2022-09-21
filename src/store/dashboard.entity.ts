@@ -3,7 +3,7 @@ import {productRows, userRows} from '../datatablesource'
 
 type idType = number | string;
 interface IProduct {
-  id: idType;
+  id: string;
   title: string;
   img: string;
   color:string;
@@ -11,8 +11,8 @@ interface IProduct {
   price:number | string;
   category:string;
 }
-interface IUser {
-  id: idType;
+export interface IUser {
+  id: string;
   username: string;
   img: string;
   country:string;
@@ -31,7 +31,7 @@ const defaultState: ITodoEntity = {
 };
 // const generateId = () => Math.random().toString(36).substr(2, 9);
 
-export const todoEntity = entity(defaultState, [persistence("p")]);
+export const todoEntity = entity(defaultState, [persistence("e")]);
 
 // actions
 export const addUser = (data: IUser) =>
@@ -44,12 +44,12 @@ export const addProduct = (data: IProduct) =>
     ...state,
     productItems: state.productItems.concat(data),
   }));
-  export const removeUser = (id: idType) =>
+  export const removeUser = (id:string) =>
   todoEntity.set((state) => ({
     ...state,
     userItems: state.userItems.filter((item) => item.id !== id),
   }));
-  export const removeProduct = (id: idType) =>
+  export const removeProduct = (id:string) =>
   todoEntity.set((state) => ({
     ...state,
     productItems: state.productItems.filter((item) => item.id !== id),

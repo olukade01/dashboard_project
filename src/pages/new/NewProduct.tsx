@@ -5,7 +5,7 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import { useState, useEffect } from "react";
 import { productInputs } from "../../formSource";
 import { productRows } from "../../datatablesource";
-import { addProduct } from "../../store/dashboard.entity";
+import { addProduct, todoEntity } from "../../store/dashboard.entity";
 
 export const generateId = () => Math.random().toString(36).substr(2, 9);
 const NewProducts = () => {
@@ -16,6 +16,10 @@ const NewProducts = () => {
   const [price, setPrice] = useState("");
   const [color, setColor] = useState("");
   const [message, setMessage] = useState("");
+
+  const { productItems } = todoEntity.get();
+  const images = productItems.map((item) => item.img);
+  const random = () => images[Math.floor(Math.random() * images.length)];
 
   const handleChange = (e: any, index: number) => {
     index === 0
@@ -33,7 +37,7 @@ const NewProducts = () => {
     const data = {
       id: generateId(),
       title,
-      img: "",
+      img: random(),
       color,
       description,
       price,

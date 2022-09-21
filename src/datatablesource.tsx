@@ -80,7 +80,7 @@ export const productColumns: GridColDef[] = [
 
 export const productRows = [
   {
-    id: 5,
+    id: "5yu",
     title: "Targaryen",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
     color: "red",
@@ -89,7 +89,7 @@ export const productRows = [
     category: "laptop",
   },
   {
-    id: 6,
+    id: "6jok",
     title: "Melisandre",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAlUkquwvDZ856VP_lj7B4tHF6lVQKrCZe4w&usqp=CAU",
     color: "green",
@@ -98,7 +98,7 @@ export const productRows = [
     category: "laptop",
   },
   {
-    id: 7,
+    id: "7hijlk",
     title: "Clifford",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM52o3Lq1x8l8TMs2vHxopWkMJhgM_gKh85g&usqp=CAU",
     color: "blue",
@@ -107,7 +107,7 @@ export const productRows = [
     category: "laptop",
   },
   {
-    id: 8,
+    id: "8hkjl",
     title: "Frances",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
     color: "pink",
@@ -116,7 +116,7 @@ export const productRows = [
     category: "laptop",
   },
   {
-    id: 9,
+    id: "9kl",
     title: "Roxie",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
     color: "grey",
@@ -125,7 +125,7 @@ export const productRows = [
     category: "laptop",
   },
   {
-    id: 10,
+    id: "10kl",
     title: "Roxie",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
     color: "tomato",
@@ -137,7 +137,7 @@ export const productRows = [
 
 export const userRows = [
   {
-    id: 1,
+    id: "1hjk",
     username: "Snow",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
     country: "Nigeria",
@@ -146,7 +146,7 @@ export const userRows = [
     address: "adewole estate",
   },
   {
-    id: 2,
+    id: "2ghjk",
     username: "Jamie Lannister",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
     country: "France",
@@ -155,7 +155,7 @@ export const userRows = [
     address: "adewole estate",
   },
   {
-    id: 3,
+    id: "hjkl3",
     username: "Lannister",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4Wam9IQiZjp_FYkZrrd99kUqESCo0RZDzg&usqp=CAU",
     country: "Canada",
@@ -164,7 +164,7 @@ export const userRows = [
     address: "adewole estate",
   },
   {
-    id: 4,
+    id: "jkl4",
     username: "Stark",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTERymxzCBwiYcWG2N6vEYpXN1a0Qv7_cBFFw&usqp=CAU",
     country: "England",
