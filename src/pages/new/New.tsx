@@ -4,16 +4,72 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { userInputs } from "../../formSource";
+import { generateId } from "./NewProduct";
+import { addProduct, addUser } from "../../store/dashboard.entity";
 
 const New = () => {
   const [file, setFile] = useState();
-  // const []
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e: any, index: number) => {
+    index === 1
+      ? setUsername(e.target.value)
+      : index === 2
+      ? setEmail(e.target.value)
+      : index === 3
+      ? setPhone(e.target.value)
+      : index === 5
+      ? setAddress(e.target.value)
+      : index === 6
+      ? setCountry(e.target.value)
+      : index === 0
+      ? setName(e.target.value)
+      : setPassword(e.target.value);
+  };
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const data = {
+      id: generateId(),
+      username,
+      img: "",
+      email,
+      phone,
+      country,
+      address,
+    };
+    addUser(data);
+    setUsername("");
+    setEmail("");
+    setPhone("");
+    setCountry("");
+    setAddress("");
+    setPassword("");
+    setName("");
+    setMessage("New User Successfully Added");
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  };
+
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
         <Navbar />
         <main>
+          <h1
+            className="message"
+            style={{ color: "green", textAlign: "center", marginTop: 10 }}
+          >
+            {message}
+          </h1>
           <div className="top">
             <h1>Add New User</h1>
           </div>
@@ -29,7 +85,7 @@ const New = () => {
               />
             </div>
             <div className="right">
-              <form>
+              <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="formInput">
                   <label htmlFor="file">
                     Image: <DriveFolderUploadOutlinedIcon className="upload" />
@@ -41,13 +97,33 @@ const New = () => {
                     style={{ display: "none" }}
                   />
                 </div>
-                {userInputs.map((input: any) => (
+                {userInputs.map((input: any, index) => (
                   <div key={input.id} className="formInput">
                     <label>{input.label}</label>
-                    <input type={input.type} placeholder={input.placeholder} />
+                    <input
+                      value={
+                        index === 1
+                          ? username
+                          : index === 2
+                          ? email
+                          : index === 3
+                          ? phone
+                          : index === 5
+                          ? address
+                          : index === 6
+                          ? country
+                          : index === 0
+                          ? name
+                          : password
+                      }
+                      required
+                      type={input.type}
+                      placeholder={input.placeholder}
+                      onChange={(e) => handleChange(e, index)}
+                    />
                   </div>
                 ))}
-                <button onClick={(e) => e.preventDefault()}>Send</button>
+                <button type="submit">Send</button>
               </form>
             </div>
           </div>

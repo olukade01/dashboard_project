@@ -1,4 +1,5 @@
 import { GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+// import { toggleUser } from "./store/dashboard.entity";
 
 export const userColumns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
@@ -24,14 +25,17 @@ export const userColumns: GridColDef[] = [
     width: 150,
   },
   {
-    field: "status",
-    headerName: "Status",
-    width: 130,
-    renderCell: (params) => (
-      <div className={`cellWithStatus ${params.row.status}`}>
-        {params.row.status}
-      </div>
-    ),
+    field: "country",
+    headerName: "Country",
+    width: 120,
+    // renderCell: (params) => (
+    //   <div
+    //     // onClick={() => toggleUser(params.row.id)}
+    //     className={`cellWithStatus ${params.row.status ? "active" : "pending"}`}
+    //   >
+    //     {params.row.status ? "active" : "pending"}
+    //   </div>
+    // ),
   },
 ];
 export const productColumns: GridColDef[] = [
@@ -39,7 +43,7 @@ export const productColumns: GridColDef[] = [
   {
     field: "title",
     headerName: "Title",
-    width: 210,
+    width: 180,
     renderCell: (params: GridValueGetterParams) => (
       <div className="cellWithImg">
         <img src={params.row.img} />
@@ -50,27 +54,27 @@ export const productColumns: GridColDef[] = [
   {
     field: "category",
     headerName: "Category",
-    width: 220,
+    width: 130,
   },
   {
     field: "description",
     headerName: "Description",
-    width: 150,
+    width: 200,
   },
   {
     field: "price",
     headerName: "Price",
-    width: 150,
+    width: 100,
   },
   {
-    field: "inStock",
-    headerName: "In Stock",
+    field: "color",
+    headerName: "Color",
     width: 130,
-    renderCell: (params) => (
-      <div className={`cellWithInStock ${params.row.inStock}`}>
-        {params.row.inStock}
-      </div>
-    ),
+    // renderCell: (params) => (
+    //   <div className={`cellWithInStock ${params.row.inStock}`}>
+    //     {params.row.inStock}
+    //   </div>
+    // ),
   },
 ];
 
@@ -79,7 +83,7 @@ export const productRows = [
     id: 5,
     title: "Targaryen",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
-    inStock: "passive",
+    color: "red",
     description: "5snow@gmail.com",
     price: 22,
     category: "laptop",
@@ -88,7 +92,7 @@ export const productRows = [
     id: 6,
     title: "Melisandre",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAlUkquwvDZ856VP_lj7B4tHF6lVQKrCZe4w&usqp=CAU",
-    inStock: "active",
+    color: "green",
     description: "6snow@gmail.com",
     price: 15,
     category: "laptop",
@@ -97,7 +101,7 @@ export const productRows = [
     id: 7,
     title: "Clifford",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM52o3Lq1x8l8TMs2vHxopWkMJhgM_gKh85g&usqp=CAU",
-    inStock: "passive",
+    color: "blue",
     description: "7snow@gmail.com",
     price: 44,
     category: "laptop",
@@ -106,7 +110,7 @@ export const productRows = [
     id: 8,
     title: "Frances",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR563zwATHZ8pvggtUl0sQc5OgQxFL3GoJcLg&usqp=CAU",
-    inStock: "active",
+    color: "pink",
     description: "8snow@gmail.com",
     price: 36,
     category: "laptop",
@@ -115,7 +119,7 @@ export const productRows = [
     id: 9,
     title: "Roxie",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
-    inStock: "pending",
+    color: "grey",
     description: "snow@gmail.com",
     price: 65,
     category: "laptop",
@@ -124,7 +128,7 @@ export const productRows = [
     id: 10,
     title: "Roxie",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
-    inStock: "active",
+    color: "tomato",
     description: "snow@gmail.com",
     price: 65,
     category: "laptop",
@@ -136,32 +140,36 @@ export const userRows = [
     id: 1,
     username: "Snow",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyNj21BsjucUVU1cHF-rasiFD5nxb0vCeXw&usqp=CAU",
-    status: "active",
+    country: "Nigeria",
     email: "1snow@gmail.com",
     phone: 35,
+    address: "adewole estate",
   },
   {
     id: 2,
     username: "Jamie Lannister",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXbu1KSt-LxQWME4qM9_u9UTNtrP3qxRdG-A&usqp=CAU",
-    status: "passive",
+    country: "France",
     email: "2snow@gmail.com",
     phone: 42,
+    address: "adewole estate",
   },
   {
     id: 3,
     username: "Lannister",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4Wam9IQiZjp_FYkZrrd99kUqESCo0RZDzg&usqp=CAU",
-    status: "pending",
+    country: "Canada",
     email: "3snow@gmail.com",
     phone: 45,
+    address: "adewole estate",
   },
   {
     id: 4,
     username: "Stark",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTERymxzCBwiYcWG2N6vEYpXN1a0Qv7_cBFFw&usqp=CAU",
-    status: "active",
+    country: "England",
     email: "4snow@gmail.com",
     phone: 16,
+    address: "adewole estate",
   },
 ];

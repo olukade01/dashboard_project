@@ -16,6 +16,12 @@
 
     main{
       overflow-y: auto;
+
+      .message{
+        @include th(580px){
+          font-size: 1.3rem;
+        }
+      }
     }
 
     .top, .bottom{

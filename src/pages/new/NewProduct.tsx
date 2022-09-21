@@ -5,15 +5,18 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import { useState, useEffect } from "react";
 import { productInputs } from "../../formSource";
 import { productRows } from "../../datatablesource";
+import { addProduct } from "../../store/dashboard.entity";
 
-const NewProducts = ({ setProduct }: { setProduct: any }) => {
+export const generateId = () => Math.random().toString(36).substr(2, 9);
+const NewProducts = () => {
   const [file, setFile] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState(0);
-  const generateId = () => Math.random().toString(36).substr(2, 9);
-  // const [category, setCategory] = useState();
+  const [price, setPrice] = useState("");
+  const [color, setColor] = useState("");
+  const [message, setMessage] = useState("");
+
   const handleChange = (e: any, index: number) => {
     index === 0
       ? setTitle(e.target.value)
@@ -23,7 +26,7 @@ const NewProducts = ({ setProduct }: { setProduct: any }) => {
       ? setCategory(e.target.value)
       : index === 3
       ? setPrice(e.target.value)
-      : "";
+      : setColor(e.target.value);
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -31,14 +34,21 @@ const NewProducts = ({ setProduct }: { setProduct: any }) => {
       id: generateId(),
       title,
       img: "",
-      inStock: "In Stock",
+      color,
       description,
       price,
       category,
     };
-    const result = productRows.concat(data);
-    console.log(result);
-    setProduct(result);
+    addProduct(data);
+    setCategory("");
+    setTitle("");
+    setDescription("");
+    setPrice("");
+    setColor("");
+    setMessage("New Product Successfully Added");
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
   };
 
   return (
@@ -47,6 +57,12 @@ const NewProducts = ({ setProduct }: { setProduct: any }) => {
       <div className="newContainer">
         <Navbar />
         <main>
+          <h1
+            className="message"
+            style={{ color: "green", textAlign: "center", marginTop: 10 }}
+          >
+            {message}
+          </h1>
           <div className="top">
             <h1>Add New Product</h1>
           </div>
@@ -62,7 +78,7 @@ const NewProducts = ({ setProduct }: { setProduct: any }) => {
               />
             </div>
             <div className="right">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="formInput">
                   <label htmlFor="file">
                     Image: <DriveFolderUploadOutlinedIcon className="upload" />
@@ -87,8 +103,9 @@ const NewProducts = ({ setProduct }: { setProduct: any }) => {
                           ? category
                           : index === 3
                           ? price
-                          : ""
+                          : color
                       }
+                      required
                       type={input.type}
                       onChange={(e) => handleChange(e, index)}
                       placeholder={input.placeholder}
