@@ -33,6 +33,7 @@ const List = ({
               </Link>
             </div>
             <DataGrid
+              className="datagrid"
               rows={datas}
               columns={columns.concat(columnAction)}
               pageSize={9}

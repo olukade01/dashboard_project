@@ -32,7 +32,7 @@ const Sidebar = () => {
         </Link>
       </div>
       <hr />
-      <div className="bottom">
+      <div className="bottomm">
         <ul>
           <p>MAIN</p>
           <Link to="/" style={{ textDecoration: "none" }}>

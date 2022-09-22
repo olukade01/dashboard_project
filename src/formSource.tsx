@@ -34,6 +34,7 @@ export const userInputs: Inputs = [
     id: 5,
     label: "Password",
     type: "password",
+    placeholder: "*****",
   },
   {
     id: 6,

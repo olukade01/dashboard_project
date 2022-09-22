@@ -20,6 +20,15 @@ export interface IUser {
   phone:idType;
   address: string
 }
+// export interface User {
+//   id: string | undefined;
+//   username: string | undefined;
+//   img: string | undefined;
+//   country:string | undefined;
+//   email:string | undefined;
+//   phone:idType | undefined;
+//   address: string | undefined
+// }
 interface ITodoEntity {
   productItems: IProduct[];
   userItems: IUser[]
@@ -54,11 +63,19 @@ export const addProduct = (data: IProduct) =>
     ...state,
     productItems: state.productItems.filter((item) => item.id !== id),
   }));
-  // export const toggleUser = (id: idType) =>
-  // todoEntity.set((state) => ({
-  //   ...state,
-  //   userItems: state.userItems.map((item) => {
-  //     if (item.id === id) item.status = !item.status;
-  //     return item;
-  //   }),
-  // }));
+  export const editUser = (id: string, data:IUser) =>
+  todoEntity.set((state) => ({
+    ...state,
+    userItems: state.userItems.map((item) => {
+      if (item.id === id) item = data;
+      return item;
+    }),
+  }));
+  export const editProduct = (id: string, data:IProduct) =>
+  todoEntity.set((state) => ({
+    ...state,
+    productItems: state.productItems.map((item) => {
+      if (item.id === id) item = data;
+      return item;
+    }),
+  }));
